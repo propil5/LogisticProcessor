@@ -1,0 +1,59 @@
+﻿@page "/products"
+@using LogisticProcessor.Web.Shared.Models;
+@inject HttpClient Http
+
+<h1>Products</h1>
+
+<p>Page to display latests products.</p>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!products?.Any() ?? true)
+{
+    <p><em>There is no products to display.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Arrival Time</th>
+                <th>Priority</th>
+                <th>Weight</th>
+                <th>Width</th>
+                <th>Depth</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.ArrivalTime.ToShortTimeString()</td>
+                    <td>@product.Priority</td>
+                    <td>@product.Picture</td>
+                    <td>@product.Weight</td>
+                    <td>@product.Width</td>
+                    <td>@product.Depth</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Product[] products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await Http.GetFromJsonAsync<Product[]>("api/products");
+    }
+
+}
