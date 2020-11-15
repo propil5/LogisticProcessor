@@ -14,21 +14,21 @@ namespace LogisticProcessor.Web.Server.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IStartupConfigureServicesFilter _startupConfigureServicesFilter;
-        public ProductController(IStartupConfigureServicesFilter startupConfigureServicesFilter) // TODO: This is just example - change when there will be proper one available
+        //private readonly IStartupConfigureServicesFilter _startupConfigureServicesFilter;
+        public ProductController() // TODO: This is just example - change when there will be proper one available
         {
-            _startupConfigureServicesFilter = startupConfigureServicesFilter;
+            //_startupConfigureServicesFilter = startupConfigureServicesFilter;
         }
 
         [HttpGet]
-        [Route("api/products")]
-        public string Get(int? id = null)
+        //[Route("api/products")]
+        public ActionResult<IEnumerable<Product>> Get(int? id = null)
         {
-            return JsonConvert.SerializeObject(GetTestProduct());
+            return GetTestProduct();
         }
 
         #region helper
-        private IEnumerable<Product> GetTestProduct(){
+        private ActionResult<IEnumerable<Product>> GetTestProduct(){
             {
                 return new[]
                 {
