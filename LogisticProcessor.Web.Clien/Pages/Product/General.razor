@@ -1,0 +1,146 @@
+﻿@*@page "/products"
+@inject HttpClient Http
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    .sort-th {
+        cursor: pointer;
+    }
+
+    .fa {
+        float: right;
+    }
+</style>
+
+<h1>Products</h1>
+
+<p>Page to display latests products.</p>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!products?.Any() ?? true)
+{
+    <p><em>There is no products to display.</em></p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="sort-th" @onclick="@(() => SortTable("Id"))">
+                    ID
+                    <span class="fa @(SetSortIcon("Id"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Name"))">
+                    Name
+                    <span class="fa @(SetSortIcon("Name"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Description"))">
+                    Description
+                    <span class="fa @(SetSortIcon("Description"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("ArrivalTime"))">
+                    Arrival Time
+                    <span class="fa @(SetSortIcon("ArrivalTime"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Priority"))">
+                    Priority
+                    <span class="fa @(SetSortIcon("Priority"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Picture"))">
+                    Picture
+                    <span class="fa @(SetSortIcon("Picture"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Weight"))">
+                    Weight
+                    <span class="fa @(SetSortIcon("Width"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Depth"))">
+                    Depth
+                    <span class="fa @(SetSortIcon("Depth"))"></span>
+                </th>
+                <th class="sort-th" @onclick="@(() => SortTable("Depth"))">
+                    Depth
+                    <span class="fa @(SetSortIcon("Depth"))"></span>
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.ArrivalTime.ToString("dd.MM.yyyy HH:mm:ss")</td>
+                <td>@product.Priority</td>
+                <td>@product.Picture</td>
+                <td>@product.Weight</td>
+                <td>@product.Width</td>
+                <td>@product.Depth</td>
+                <td>
+                    <a class="btn btn-primary" href='/editArticle/@product.Id'>Edit</a>  |
+                    <a class="btn btn-danger" @onclick="() => DeleteArticle(product.Id)">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    //private Product[] products;
+    private bool isSortedAscending;
+    private string activeSortColumn;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //products = await Http.GetFromJsonAsync<Product[]>("api/product");
+    }
+
+    private void SortTable(string columnName)
+    {
+        if (columnName != activeSortColumn)
+        {
+            //products = products.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToArray();
+            isSortedAscending = true;
+            activeSortColumn = columnName;
+        }
+        else
+        {
+            if (isSortedAscending)
+            {
+                //products = products.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToArray();
+            }
+            else
+            {
+                //products = products.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToArray();
+            }
+            isSortedAscending = !isSortedAscending;
+        }
+    }
+
+    private string SetSortIcon(string columnName)
+    {
+        if (activeSortColumn != columnName)
+        {
+            return string.Empty;
+        }
+        if (isSortedAscending)
+        {
+            return "fa-sort-up";
+        }
+        else
+        {
+            return "fa-sort-down";
+        }
+    }
+
+    private bool DeleteArticle(int id)
+    {
+        return true;
+    }
+}*@
