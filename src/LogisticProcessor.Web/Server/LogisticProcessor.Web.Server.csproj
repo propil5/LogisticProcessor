@@ -14,10 +14,11 @@
     <Folder Include="Controllers\Shipping\" />
     <Folder Include="Controllers\Outbound\" />
     <Folder Include="Controllers\Process\" />
+    <Folder Include="DataAccess\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LogisticProcessor.Shared\LogisticProcessor.Shared.csproj" />
+    <ProjectReference Include="..\..\LogisticProcessor.Web.Client\Shared\LogisticProcessor.Web.Shared.csproj" />
   </ItemGroup>
 
 

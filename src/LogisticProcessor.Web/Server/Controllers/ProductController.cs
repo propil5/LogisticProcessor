@@ -22,13 +22,13 @@ namespace LogisticProcessor.Web.Server.Controllers
 
         [HttpGet]
         //[Route("api/products")]
-        public ActionResult<IEnumerable<Product>> Get(int? id = null)
+        public IEnumerable<Product> Get(int? id = null)
         {
             return GetTestProduct();
         }
 
         #region helper
-        private ActionResult<IEnumerable<Product>> GetTestProduct(){
+        private IEnumerable<Product> GetTestProduct(){
             {
                 return new[]
                 {
