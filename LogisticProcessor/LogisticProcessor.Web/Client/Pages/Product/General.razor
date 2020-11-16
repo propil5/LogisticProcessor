@@ -30,9 +30,9 @@ else
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th class="sort-th" @onclick="@(() => SortTable("ID"))">
+                <th class="sort-th" @onclick="@(() => SortTable("Id"))">
                     ID
-                    <span class="fa @(SetSortIcon("ID"))"></span>
+                    <span class="fa @(SetSortIcon("Id"))"></span>
                 </th>
                 <th class="sort-th" @onclick="@(() => SortTable("Name"))">
                     Name
@@ -42,9 +42,9 @@ else
                     Description
                     <span class="fa @(SetSortIcon("Description"))"></span>
                 </th>
-                <th class="sort-th" @onclick="@(() => SortTable("Arrival Time"))">
+                <th class="sort-th" @onclick="@(() => SortTable("ArrivalTime"))">
                     Arrival Time
-                    <span class="fa @(SetSortIcon("Arrival Time"))"></span>
+                    <span class="fa @(SetSortIcon("ArrivalTime"))"></span>
                 </th>
                 <th class="sort-th" @onclick="@(() => SortTable("Priority"))">
                     Priority
@@ -76,7 +76,7 @@ else
                 <td>@product.Id</td>
                 <td>@product.Name</td>
                 <td>@product.Description</td>
-                <td>@product.ArrivalTime.ToShortTimeString()</td>
+                <td>@product.ArrivalTime.ToString("dd.MM.yyyy HH:mm:ss")</td>
                 <td>@product.Priority</td>
                 <td>@product.Picture</td>
                 <td>@product.Weight</td>
