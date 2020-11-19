@@ -13,6 +13,12 @@ namespace LogisticProcessor.DataAccess
         public virtual DbSet<ProductDto> Products { get; set; }
         public virtual DbSet<CompanyDto> Companies { get; set; }
         public virtual DbSet<PalletDto> Pallets { get; set; }
+
+        internal ApplicationDbContext CreateDbContext(object p)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public virtual DbSet<AddressDto> AddressDto { get; set; }
     }
 

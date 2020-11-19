@@ -8,9 +8,9 @@ namespace LogisticProcessor.DataAccess.Common
 {
     public interface IDao<TEntity>
     {
-        IEnumerable<TEntity> Get(int? id = null);
+        IEnumerable<TEntity> Get();
+        IEnumerable<TEntity> GetById(int id);
         TEntity Save(TEntity entity);
         void Delete(TEntity entity);
-        void SaveChanges();
     }
 }

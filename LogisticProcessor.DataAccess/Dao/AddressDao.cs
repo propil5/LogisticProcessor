@@ -10,34 +10,34 @@ namespace LogisticProcessor.DataAccess.Dao
 {
     public class AddressDao : IDao<AddressDto>
     {
-        private ApplicationDbContext _context = null;
+        private readonly ApplicationDbContext _context = null;
 
-        public AddressDao()
+        public AddressDao(ApplicationDbContext context)
         {
-            ResetContext();
+            _context = context;
         }
 
-        private void ResetContext()
+        public IEnumerable<AddressDto> Get()
         {
-            _context = new ApplicationDbContext().CreateDbContext(null);
+            return _context.AddressDto;
         }
 
-        public IEnumerable<AddressDto> Get(int? id = null)
+        public IEnumerable<AddressDto> GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.AddressDto.Where(x => x.Id == id);
         }
 
-        void IDao<AddressDto>.Delete(AddressDto entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        AddressDto IDao<AddressDto>.Save(AddressDto entity)
+        void  Delete(AddressDto entity)
         {
             throw new NotImplementedException();
         }
 
-        void IDao<AddressDto>.SaveChanges()
+        AddressDto Save(AddressDto entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        void SaveChanges()
         {
             throw new NotImplementedException();
         }
