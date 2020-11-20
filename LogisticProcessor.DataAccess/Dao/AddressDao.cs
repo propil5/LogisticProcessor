@@ -3,6 +3,7 @@ using LogisticProcessor.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,19 +28,25 @@ namespace LogisticProcessor.DataAccess.Dao
             return _context.AddressDto.Where(x => x.Id == id);
         }
 
-        void  Delete(AddressDto entity)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
-        }
+            var deleted = false;
+            var employee = _context.AddressDto
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
 
-        AddressDto Save(AddressDto entity)
-        {
-            throw new NotImplementedException();
-        }
+            if (employee != null)
+            {
+                _context.Remove(employee);
+                deleted = true;
+            }
+            else
+            {
+                deleted = false;
+            }
 
-        void SaveChanges()
-        {
-            throw new NotImplementedException();
+            var saveResult = _context.SaveChanges();
+            return saveResult == 1 && deleted == true;
         }
     }
 }

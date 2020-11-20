@@ -12,6 +12,7 @@ namespace LogisticProcessor.Test.DataAcess.Dao
     public class AddressDtoTest
     {
         private AddressDao _addressDao;
+
         [SetUp]
         public void SetUp()
         {

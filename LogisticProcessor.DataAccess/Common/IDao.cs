@@ -8,9 +8,10 @@ namespace LogisticProcessor.DataAccess.Common
 {
     public interface IDao<TEntity>
     {
+        IEnumerable<TEntity> Add(TEntity entity);
         IEnumerable<TEntity> Get();
         IEnumerable<TEntity> GetById(int id);
-        TEntity Save(TEntity entity);
+        TEntity Update(TEntity entity);
         void Delete(TEntity entity);
     }
 }
