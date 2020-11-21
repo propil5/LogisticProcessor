@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogisticProcessor.DataAccess.Dao.Interfaces
 {
-    interface ICompanyDto
+    interface ICompanyDao
     {
     }
 }

@@ -1,4 +1,6 @@
 ﻿using LogisticProcessor.DataAccess.Dao;
+using LogisticProcessor.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -16,12 +18,18 @@ namespace LogisticProcessor.Test.DataAcess.Dao
         [SetUp]
         public void SetUp()
         {
+            var context = new DbContext();
             _addressDao = new AddressDao();
         }
 
         [Test]
         public void CanAddAddress()
         {
+            var newAddress = new AddressDto
+            {
+                
+            }
+            var add = _addressDao.Add()
             var sut = _addressDao.Get();
             Assert.IsNotNull(sut);
             Assert.IsTrue(sut.Any());
