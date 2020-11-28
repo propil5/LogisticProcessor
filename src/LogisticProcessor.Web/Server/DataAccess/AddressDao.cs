@@ -1,21 +1,24 @@
-﻿using LogisticProcessor.DataAccess.Models;
+﻿using LogisticProcessor.DataAccess.Common;
+using LogisticProcessor.DataAccess.Dao.Interfaces;
+using LogisticProcessor.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LogisticProcessor.DataAccess.Dao
 {
-    public class ProductDao
+    public class AddressDao : IAddressService
     {
         private readonly ApplicationDbContext _context = null;
 
-        public ProductDao(ApplicationDbContext context)
+        public AddressDao(ApplicationDbContext context)
         {
             _context = context;
         }
-        public bool Add(ProductDto product)
+        public bool Add(AddressDto address)
         {
             _context.AddressDto.Add(address);
             var saveResult = _context.SaveChanges();
@@ -24,31 +27,31 @@ namespace LogisticProcessor.DataAccess.Dao
 
         public IEnumerable<AddressDto> Get()
         {
-            return _context.ProductDto;
+            return _context.AddressDto;
         }
 
-        public IEnumerable<ProductDto> GetById(int id)
+        public IEnumerable<AddressDto> GetById(int id)
         {
-            return _context.ProductDto.Where(x => x.Id == id);
+            return _context.AddressDto.Where(x => x.Id == id);
         }
 
-        public bool Update(ProductDto product)
+        public bool Update(AddressDto address)
         {
-            var exisitngProduct = _context.ProductDto
-                .Where(x => x.Id == product.Id)
+            var exisitngAddress = _context.AddressDto
+                .Where(x => x.Id == address.Id)
                 .SingleOrDefault();
 
 
-            if (exisitngProduct == null)
+            if (exisitngAddress == null)
             {
                 return false;
             }
-            exisitngProduct. = address.Name;
-            exisitngProduct.Surname = address.Surname;
-            exisitngProduct.PostCode = address.PostCode;
-            exisitngProduct.Street = address.Street;
-            exisitngProduct.HouseNumber = address.HouseNumber;
-            _context.Update(exisitngProduct);
+            exisitngAddress.Name = address.Name;
+            exisitngAddress.Surname = address.Surname;
+            exisitngAddress.PostCode = address.PostCode;
+            exisitngAddress.Street = address.Street;
+            exisitngAddress.HouseNumber = address.HouseNumber;
+            _context.Update(exisitngAddress);
             var saveResult = _context.SaveChanges();
             return saveResult == 1;
         }
@@ -56,13 +59,13 @@ namespace LogisticProcessor.DataAccess.Dao
         public bool Delete(int id)
         {
             var deleted = false;
-            var product = _context.ProductDto
+            var employee = _context.AddressDto
                 .Where(x => x.Id == id)
                 .SingleOrDefault();
 
-            if (product != null)
+            if (employee != null)
             {
-                _context.Remove(product);
+                _context.Remove(employee);
                 deleted = true;
             }
             else

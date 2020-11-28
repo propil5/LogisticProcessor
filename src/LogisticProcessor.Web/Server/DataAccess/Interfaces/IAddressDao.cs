@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogisticProcessor.DataAccess.Dao.Interfaces
 {
-    interface IAddressDao
+    public interface IAddressService
     {
         bool Add(AddressDto address);
         IEnumerable<AddressDto> Get();

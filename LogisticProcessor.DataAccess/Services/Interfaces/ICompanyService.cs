@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace LogisticProcessor.Web.Server
+namespace LogisticProcessor.DataAccess.Services.Interfaces
 {
-    //TODO: Add DI logic here
-    public class Bootstraper
+    interface ICompanyService
     {
     }
 }

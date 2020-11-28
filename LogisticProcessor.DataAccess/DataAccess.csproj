@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 
@@ -22,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\LogisticProcessor.Web.Client\Shared\LogisticProcessor.Web.Shared.csproj" />
+    <ProjectReference Include="..\src\LogisticProcessor.Web.Client\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

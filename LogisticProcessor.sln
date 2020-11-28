@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30626.31
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Web.Server", "src\LogisticProcessor.Web\Server\LogisticProcessor.Web.Server.csproj", "{F512C971-283B-43A2-BC36-9F81DD8351E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Server", "src\LogisticProcessor.Web\Server\Web.Server.csproj", "{F512C971-283B-43A2-BC36-9F81DD8351E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Web.Test", "test\LogisticProcessor.Web.Test\LogisticProcessor.Web.Test.csproj", "{968E77C1-63F1-4ECC-A9C4-62926A873E07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Test", "test\LogisticProcessor.Web.Test\Web.Test.csproj", "{968E77C1-63F1-4ECC-A9C4-62926A873E07}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Data.Server", "src\LogisticProcessor.Data.Server\LogisticProcessor.Data.Server.csproj", "{94A39A8C-DBD3-42EA-B52B-ECC2D91BCC1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Server", "src\LogisticProcessor.Data.Server\Data.Server.csproj", "{94A39A8C-DBD3-42EA-B52B-ECC2D91BCC1D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Data.gRPCService", "src\LogisticProcessor.Data.gRPCService\LogisticProcessor.Data.gRPCService.csproj", "{4344C1A1-0ED3-401D-B4D0-FB59968C4097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPCService", "src\LogisticProcessor.Data.gRPCService\gRPCService.csproj", "{4344C1A1-0ED3-401D-B4D0-FB59968C4097}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Test", "test\LogisticProcessor.Test\LogisticProcessor.Test.csproj", "{6605DB73-D355-414B-8517-12094E7341B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "test\LogisticProcessor.Test\Test.csproj", "{6605DB73-D355-414B-8517-12094E7341B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Web.Client", "src\LogisticProcessor.Web.Client\Client\LogisticProcessor.Web.Client.csproj", "{88CB5EF0-0233-4F31-BE34-6B086ABECB31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Client", "src\LogisticProcessor.Web.Client\Client\Web.Client.csproj", "{88CB5EF0-0233-4F31-BE34-6B086ABECB31}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticProcessor.Web.Shared", "src\LogisticProcessor.Web.Client\Shared\LogisticProcessor.Web.Shared.csproj", "{D4F44378-AB6A-4C33-9FE6-39DC854F3F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "src\LogisticProcessor.Web.Client\Shared\Shared.csproj", "{D4F44378-AB6A-4C33-9FE6-39DC854F3F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticProcessor.DataAccess", "LogisticProcessor.DataAccess\LogisticProcessor.DataAccess.csproj", "{4657F47E-3475-45E2-AAC7-9B9DE11BB49C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "LogisticProcessor.DataAccess\DataAccess.csproj", "{4657F47E-3475-45E2-AAC7-9B9DE11BB49C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

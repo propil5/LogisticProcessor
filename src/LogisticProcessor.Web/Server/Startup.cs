@@ -1,5 +1,10 @@
+using LogisticProcessor.DataAccess;
+using LogisticProcessor.DataAccess.Dao;
+using LogisticProcessor.DataAccess.Dao.Interfaces;
+using LogisticProcessor.DataAccess.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +27,17 @@ namespace LogisticProcessor.Web.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<>;
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            //services.AddScoped<LogisticProcessor.DataAccess.Services.IAddressService, LogisticProcessor.DataAccess.Services.AddressService>();
+            //services.AddScoped<ICompanyDao, CompanyDao>();
+            //services.AddScoped<IPalletDao, PalletDao>();
+            //services.AddScoped<IProductDao, ProductDao>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

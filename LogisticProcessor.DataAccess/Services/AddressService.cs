@@ -1,5 +1,5 @@
 ﻿using LogisticProcessor.DataAccess.Common;
-using LogisticProcessor.DataAccess.Dao.Interfaces;
+using LogisticProcessor.DataAccess.Services.Interfaces;
 using LogisticProcessor.DataAccess.Models;
 using System;
 using System.Collections.Generic;
@@ -8,13 +8,13 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogisticProcessor.DataAccess.Dao
+namespace LogisticProcessor.DataAccess.Services
 {
-    public class AddressDao : IAddressDao
+    public class AddressService : IAddressService
     {
         private readonly ApplicationDbContext _context = null;
 
-        public AddressDao(ApplicationDbContext context)
+        public AddressService(ApplicationDbContext context)
         {
             _context = context;
         }
