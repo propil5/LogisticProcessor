@@ -28,7 +28,7 @@ namespace LogisticProcessor.DataAccess
         {
             IConfigurationRoot configuration =  new ConfigurationBuilder() 
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile(@Directory.GetCurrentDirectory() + "/../../LogisticProcessor/src/LogisticProcessor.Web/Server/appsettings.json")
+                .AddJsonFile(@Directory.GetCurrentDirectory() + "/../../LogisticProcessor/src/Web/Server/appsettings.json")
                 .Build();
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("DatabaseConnection");
